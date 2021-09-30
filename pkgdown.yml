@@ -1,0 +1,13 @@
+pandoc: 2.11.4
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  campsismod: campsismod.html
+  v01_model_creation: v01_model_creation.html
+  v02_structural_model: v02_structural_model.html
+  v03_model_adaptation: v03_model_adaptation.html
+  v04_compartment_properties: v04_compartment_properties.html
+  v05_parameters: v05_parameters.html
+  v06_append_pd_model: v06_append_pd_model.html
+last_built: 2021-09-30T10:11Z
+
