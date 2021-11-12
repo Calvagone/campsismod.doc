@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Write subset of parameters (theta, omega or sigma). — writeParameters • campsismod</title>
+<title>Replace all occurrences in object. — replaceAll • campsismod</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Write subset of parameters (theta, omega or sigma). — writeParameters" />
-<meta property="og:description" content="Write subset of parameters (theta, omega or sigma)." />
+<meta property="og:title" content="Replace all occurrences in object. — replaceAll" />
+<meta property="og:description" content="Replace all occurrences in object." />
 
 
 
@@ -138,37 +138,65 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Write subset of parameters (theta, omega or sigma).</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Calvagone/campsismod/blob/master/R/parameters.R'><code>R/parameters.R</code></a></small>
-    <div class="hidden name"><code>writeParameters.Rd</code></div>
+    <h1>Replace all occurrences in object.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Calvagone/campsismod/blob/master/R/generic.R'><code>R/generic.R</code></a>, <a href='https://github.com/Calvagone/campsismod/blob/master/R/pattern.R'><code>R/pattern.R</code></a>, <a href='https://github.com/Calvagone/campsismod/blob/master/R/model_statement.R'><code>R/model_statement.R</code></a>, and 5 more</small>
+    <div class="hidden name"><code>replaceAll.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Write subset of parameters (theta, omega or sigma).</p>
+    <p>Replace all occurrences in object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>writeParameters</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>replaceAll</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for character,variable_pattern,character</span>
+<span class='fu'>replaceAll</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for character,pattern,character</span>
+<span class='fu'>replaceAll</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for model_statement,pattern,character</span>
+<span class='fu'>replaceAll</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for equation,pattern,character</span>
+<span class='fu'>replaceAll</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for if_statement,pattern,character</span>
+<span class='fu'>replaceAll</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for code_record,pattern,character</span>
+<span class='fu'>replaceAll</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for code_records,pattern,character</span>
+<span class='fu'>replaceAll</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for campsis_model,pattern,character</span>
+<span class='fu'>replaceAll</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for campsis_model,character,character</span>
+<span class='fu'>replaceAll</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>pattern</span>, <span class='va'>replacement</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>subset of parameters</p></td>
+      <td><p>generic object (e.g. model, code_record(s), etc.)</p></td>
     </tr>
     <tr>
-      <th>file</th>
-      <td><p>filename</p></td>
+      <th>pattern</th>
+      <td><p>pattern to be replaced</p></td>
+    </tr>
+    <tr>
+      <th>replacement</th>
+      <td><p>replacement string</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>extra arguments, like defaultDf for empty parameters list</p></td>
+      <td><p>extra arguments</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>TRUE if success</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

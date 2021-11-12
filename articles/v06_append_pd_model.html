@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">campsismod</a>
-        <span class="version label label-warning" data-toggle="tooltip" data-placement="bottom" title="">0.5.1</span>
+        <span class="version label label-warning" data-toggle="tooltip" data-placement="bottom" title="">0.6.0</span>
       </span>
     </div>
 
@@ -122,12 +122,12 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pk_model</span> <span class="op">&lt;-</span> <span class="va">model_library</span><span class="op">$</span><span class="va">advan4_trans4</span></code></pre></div>
 </div>
-<div id="load-a-compartment-effect-model" class="section level3">
+<div id="load-an-effect-compartment-model" class="section level3">
 <h3 class="hasAnchor">
-<a href="#load-a-compartment-effect-model" class="anchor"></a>Load a compartment effect model</h3>
-<p>The effect compartment model can be downloaded here and loaded as follows:</p>
+<a href="#load-an-effect-compartment-model" class="anchor"></a>Load an effect-compartment model</h3>
+<p>The effect-compartment model can be loaded from the model library as follows:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pd_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read.campsis.html">read.campsis</a></span><span class="op">(</span><span class="st">"resources/effect_cmt_model/"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">pd_model</span> <span class="op">&lt;-</span> <span class="va">model_library</span><span class="op">$</span><span class="va">effect_cmt_model</span>
 <span class="va">pd_model</span></code></pre></div>
 <pre><code>## [MAIN]
 ## KE0=THETA_KE0*exp(ETA_KE0)
