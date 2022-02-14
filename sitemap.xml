@@ -1,549 +1,537 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/404.html</loc>
   </url>
   <url>
-    <loc>/articles/campsismod.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/articles/campsismod.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/v01_model_creation.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/articles/v01_model_creation.html</loc>
   </url>
   <url>
-    <loc>/articles/v02_structural_model.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/articles/v02_structural_model.html</loc>
   </url>
   <url>
-    <loc>/articles/v03_model_adaptation.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/articles/v03_model_adaptation.html</loc>
   </url>
   <url>
-    <loc>/articles/v04_compartment_properties.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/articles/v04_compartment_properties.html</loc>
   </url>
   <url>
-    <loc>/articles/v05_parameters.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/articles/v05_parameters.html</loc>
   </url>
   <url>
-    <loc>/articles/v06_append_pd_model.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/articles/v06_append_pd_model.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/index.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/news/index.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/add.html</loc>
   </url>
   <url>
-    <loc>/reference/add.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/addODECompartment.html</loc>
   </url>
   <url>
-    <loc>/reference/addODECompartment.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/addProperties.html</loc>
   </url>
   <url>
-    <loc>/reference/addProperties.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/appendCodeRecords.html</loc>
   </url>
   <url>
-    <loc>/reference/appendCodeRecords.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/appendComment.html</loc>
   </url>
   <url>
-    <loc>/reference/appendComment.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/appendCompartments.html</loc>
   </url>
   <url>
-    <loc>/reference/appendCompartments.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/appendModel.html</loc>
   </url>
   <url>
-    <loc>/reference/appendModel.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/appendParameters.html</loc>
   </url>
   <url>
-    <loc>/reference/appendParameters.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/as.data.frame.html</loc>
   </url>
   <url>
-    <loc>/reference/as.data.frame.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/assertSingleCharacterString.html</loc>
   </url>
   <url>
-    <loc>/reference/assertSingleCharacterString.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/autoDetectNONMEM.html</loc>
   </url>
   <url>
-    <loc>/reference/autoDetectNONMEM.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Bioavailability.html</loc>
   </url>
   <url>
-    <loc>/reference/Bioavailability.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/CampsisModel.html</loc>
   </url>
   <url>
-    <loc>/reference/CampsisModel.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/campsis_model-class.html</loc>
   </url>
   <url>
-    <loc>/reference/campsis_model-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/CodeRecords.html</loc>
   </url>
   <url>
-    <loc>/reference/clean.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/code_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/CodeRecords.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/comment-class.html</loc>
   </url>
   <url>
-    <loc>/reference/code_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Comment.html</loc>
   </url>
   <url>
-    <loc>/reference/comment-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/compartment-class.html</loc>
   </url>
   <url>
-    <loc>/reference/Comment.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Compartment.html</loc>
   </url>
   <url>
-    <loc>/reference/compartment-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/compartments-class.html</loc>
   </url>
   <url>
-    <loc>/reference/Compartment.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Compartments.html</loc>
   </url>
   <url>
-    <loc>/reference/compartments-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/compartment_bioavailability-class.html</loc>
   </url>
   <url>
-    <loc>/reference/Compartments.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/compartment_infusion_duration-class.html</loc>
   </url>
   <url>
-    <loc>/reference/compartment_bioavailability-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/compartment_infusion_rate-class.html</loc>
   </url>
   <url>
-    <loc>/reference/compartment_infusion_duration-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/compartment_initial_condition-class.html</loc>
   </url>
   <url>
-    <loc>/reference/compartment_infusion_rate-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/compartment_lag_time-class.html</loc>
   </url>
   <url>
-    <loc>/reference/compartment_initial_condition-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/compartment_properties-class.html</loc>
   </url>
   <url>
-    <loc>/reference/compartment_lag_time-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/compartment_property-class.html</loc>
   </url>
   <url>
-    <loc>/reference/compartment_properties-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/contains.html</loc>
   </url>
   <url>
-    <loc>/reference/compartment_property-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/convertAnyComment.html</loc>
   </url>
   <url>
-    <loc>/reference/contains.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/convertOutvarsToCapture.html</loc>
   </url>
   <url>
-    <loc>/reference/convertAnyComment.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/default.html</loc>
   </url>
   <url>
-    <loc>/reference/convertOutvarsToCapture.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/delete.html</loc>
   </url>
   <url>
-    <loc>/reference/default.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/disable.html</loc>
   </url>
   <url>
-    <loc>/reference/delete.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/double_array_parameter-class.html</loc>
   </url>
   <url>
-    <loc>/reference/disable.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/duration_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/double_array_parameter-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/equation-class.html</loc>
   </url>
   <url>
-    <loc>/reference/duration_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Equation.html</loc>
   </url>
   <url>
-    <loc>/reference/equation-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/ErrorRecord.html</loc>
   </url>
   <url>
-    <loc>/reference/Equation.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/error_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/ErrorRecord.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/export.html</loc>
   </url>
   <url>
-    <loc>/reference/error_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/export_type-class.html</loc>
   </url>
   <url>
-    <loc>/reference/export.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/extractLhs.html</loc>
   </url>
   <url>
-    <loc>/reference/export_type-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/extractRhs.html</loc>
   </url>
   <url>
-    <loc>/reference/extractLhs.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/extractTextBetweenBrackets.html</loc>
   </url>
   <url>
-    <loc>/reference/extractRhs.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/find.html</loc>
   </url>
   <url>
-    <loc>/reference/extractTextBetweenBrackets.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/fixOmega.html</loc>
   </url>
   <url>
-    <loc>/reference/find.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/f_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/fixOmega.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getByIndex.html</loc>
   </url>
   <url>
-    <loc>/reference/f_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getByName.html</loc>
   </url>
   <url>
-    <loc>/reference/getByIndex.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getCompartmentIndex.html</loc>
   </url>
   <url>
-    <loc>/reference/getByName.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getCompartments.html</loc>
   </url>
   <url>
-    <loc>/reference/getCompartmentIndex.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getName.html</loc>
   </url>
   <url>
-    <loc>/reference/getCompartments.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getNameInModel.html</loc>
   </url>
   <url>
-    <loc>/reference/getName.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getNames.html</loc>
   </url>
   <url>
-    <loc>/reference/getNameInModel.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getNONMEMName.html</loc>
   </url>
   <url>
-    <loc>/reference/getNames.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getPrefix.html</loc>
   </url>
   <url>
-    <loc>/reference/getNONMEMModelTemplate.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getRecordDelimiter.html</loc>
   </url>
   <url>
-    <loc>/reference/getNONMEMName.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getRecordName.html</loc>
   </url>
   <url>
-    <loc>/reference/getPrefix.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/grapes-greater-than-grapes.html</loc>
   </url>
   <url>
-    <loc>/reference/getRecordDelimiter.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/hasComment.html</loc>
   </url>
   <url>
-    <loc>/reference/getRecordName.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/IfStatement.html</loc>
   </url>
   <url>
-    <loc>/reference/grapes-greater-than-grapes.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/ifStatementPatternStr.html</loc>
   </url>
   <url>
-    <loc>/reference/hasComment.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/if_statement-class.html</loc>
   </url>
   <url>
-    <loc>/reference/IfStatement.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/ifStatementPattern.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/indexOf.html</loc>
   </url>
   <url>
-    <loc>/reference/ifStatementPatternStr.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/InfusionDuration.html</loc>
   </url>
   <url>
-    <loc>/reference/if_statement-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/InfusionRate.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/InitialCondition.html</loc>
   </url>
   <url>
-    <loc>/reference/indexOf.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/init_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/InfusionDuration.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/isComment.html</loc>
   </url>
   <url>
-    <loc>/reference/InfusionRate.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/isDiag.html</loc>
   </url>
   <url>
-    <loc>/reference/InitialCondition.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/isEmptyLine.html</loc>
   </url>
   <url>
-    <loc>/reference/init_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/isEquation.html</loc>
   </url>
   <url>
-    <loc>/reference/isComment.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/isIfStatement.html</loc>
   </url>
   <url>
-    <loc>/reference/isDiag.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/isODE.html</loc>
   </url>
   <url>
-    <loc>/reference/isEmptyLine.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/isRecordDelimiter.html</loc>
   </url>
   <url>
-    <loc>/reference/isEquation.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/isStrictRecordDelimiter.html</loc>
   </url>
   <url>
-    <loc>/reference/isIfStatement.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/LagTime.html</loc>
   </url>
   <url>
-    <loc>/reference/isODE.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/lag_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/isRecordDelimiter.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/length.html</loc>
   </url>
   <url>
-    <loc>/reference/isStrictRecordDelimiter.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/LineBreak.html</loc>
   </url>
   <url>
-    <loc>/reference/LagTime.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/line_break-class.html</loc>
   </url>
   <url>
-    <loc>/reference/lag_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/MainRecord.html</loc>
   </url>
   <url>
-    <loc>/reference/length.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/main_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/LineBreak.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/matchDoubleArrayParameter.html</loc>
   </url>
   <url>
-    <loc>/reference/line_break-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/matchSingleArrayParameter.html</loc>
   </url>
   <url>
-    <loc>/reference/MainRecord.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/maxIndex.html</loc>
   </url>
   <url>
-    <loc>/reference/main_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/methodsGlobalFunctions.html</loc>
   </url>
   <url>
-    <loc>/reference/matchDoubleArrayParameter.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/minIndex.html</loc>
   </url>
   <url>
-    <loc>/reference/matchSingleArrayParameter.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/ModelStatements.html</loc>
   </url>
   <url>
-    <loc>/reference/maxIndex.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/model_library.html</loc>
   </url>
   <url>
-    <loc>/reference/methodsGlobalFunctions.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/model_statement-class.html</loc>
   </url>
   <url>
-    <loc>/reference/minIndex.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/model_statements-class.html</loc>
   </url>
   <url>
-    <loc>/reference/ModelStatements.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/mrgsolveBlock.html</loc>
   </url>
   <url>
-    <loc>/reference/model_library.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/mrgsolveCapture.html</loc>
   </url>
   <url>
-    <loc>/reference/model_statement-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/mrgsolveCompartment.html</loc>
   </url>
   <url>
-    <loc>/reference/model_statements-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/mrgsolveMain.html</loc>
   </url>
   <url>
-    <loc>/reference/mrgsolveBlock.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/mrgsolveMatrix.html</loc>
   </url>
   <url>
-    <loc>/reference/mrgsolveCapture.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/mrgsolveOde.html</loc>
   </url>
   <url>
-    <loc>/reference/mrgsolveCompartment.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/mrgsolveParam.html</loc>
   </url>
   <url>
-    <loc>/reference/mrgsolveMain.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/mrgsolveTable.html</loc>
   </url>
   <url>
-    <loc>/reference/mrgsolveMatrix.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/mrgsolve_type-class.html</loc>
   </url>
   <url>
-    <loc>/reference/mrgsolveOde.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/ode-class.html</loc>
   </url>
   <url>
-    <loc>/reference/mrgsolveParam.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Ode.html</loc>
   </url>
   <url>
-    <loc>/reference/mrgsolveTable.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/OdeRecord.html</loc>
   </url>
   <url>
-    <loc>/reference/mrgsolve_type-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/ode_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/ode-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/omega-class.html</loc>
   </url>
   <url>
-    <loc>/reference/Ode.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Omega.html</loc>
   </url>
   <url>
-    <loc>/reference/OdeRecord.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/parameter-class.html</loc>
   </url>
   <url>
-    <loc>/reference/ode_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/parameters-class.html</loc>
   </url>
   <url>
-    <loc>/reference/omega-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Parameters.html</loc>
   </url>
   <url>
-    <loc>/reference/Omega.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/parseIfStatement.html</loc>
   </url>
   <url>
-    <loc>/reference/parameter-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/parseStatements.html</loc>
   </url>
   <url>
-    <loc>/reference/parameters-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/pattern-class.html</loc>
   </url>
   <url>
-    <loc>/reference/Parameters.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Pattern.html</loc>
   </url>
   <url>
-    <loc>/reference/parseIfStatement.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/pmx_element-class.html</loc>
   </url>
   <url>
-    <loc>/reference/parseStatements.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/pmx_list-class.html</loc>
   </url>
   <url>
-    <loc>/reference/pattern-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/pmx_position-class.html</loc>
   </url>
   <url>
-    <loc>/reference/Pattern.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/pmx_position_by_element-class.html</loc>
   </url>
   <url>
-    <loc>/reference/pmx_element-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/pmx_position_by_index-class.html</loc>
   </url>
   <url>
-    <loc>/reference/pmx_list-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/pmx_undefined_position-class.html</loc>
   </url>
   <url>
-    <loc>/reference/pmx_position-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Position.html</loc>
   </url>
   <url>
-    <loc>/reference/pmx_position_by_element-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/processDoubleArrayArguments.html</loc>
   </url>
   <url>
-    <loc>/reference/pmx_position_by_index-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/processExtraArg.html</loc>
   </url>
   <url>
-    <loc>/reference/pmx_undefined_position-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/properties_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/Position.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/rate_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/processDoubleArrayArguments.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/read.allparameters.html</loc>
   </url>
   <url>
-    <loc>/reference/processExtraArg.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/read.campsis.html</loc>
   </url>
   <url>
-    <loc>/reference/properties_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/read.html</loc>
   </url>
   <url>
-    <loc>/reference/rate_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/read.model.html</loc>
   </url>
   <url>
-    <loc>/reference/read.allparameters.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/read.parameters.html</loc>
   </url>
   <url>
-    <loc>/reference/read.campsis.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/read.pmxmod.html</loc>
   </url>
   <url>
-    <loc>/reference/read.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/read.varcov.html</loc>
   </url>
   <url>
-    <loc>/reference/read.model.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/removeTrailingLineBreaks.html</loc>
   </url>
   <url>
-    <loc>/reference/read.parameters.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/replace.html</loc>
   </url>
   <url>
-    <loc>/reference/read.pmxmod.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/replaceAll.html</loc>
   </url>
   <url>
-    <loc>/reference/read.varcov.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/rxodeCode.html</loc>
   </url>
   <url>
-    <loc>/reference/removeTrailingLineBreaks.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/rxodeMatrix.html</loc>
   </url>
   <url>
-    <loc>/reference/replace.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/rxodeParams.html</loc>
   </url>
   <url>
-    <loc>/reference/replaceAll.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/rxode_type-class.html</loc>
   </url>
   <url>
-    <loc>/reference/rxodeCode.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/select.html</loc>
   </url>
   <url>
-    <loc>/reference/rxodeMatrix.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/sigma-class.html</loc>
   </url>
   <url>
-    <loc>/reference/rxodeParams.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Sigma.html</loc>
   </url>
   <url>
-    <loc>/reference/rxode_type-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/single_array_parameter-class.html</loc>
   </url>
   <url>
-    <loc>/reference/select.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/sort.html</loc>
   </url>
   <url>
-    <loc>/reference/sigma-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/standardise.html</loc>
   </url>
   <url>
-    <loc>/reference/Sigma.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/statements_record-class.html</loc>
   </url>
   <url>
-    <loc>/reference/single_array_parameter-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/theta-class.html</loc>
   </url>
   <url>
-    <loc>/reference/sort.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/Theta.html</loc>
   </url>
   <url>
-    <loc>/reference/standardise.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/toString.html</loc>
   </url>
   <url>
-    <loc>/reference/statements_record-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/trim.html</loc>
   </url>
   <url>
-    <loc>/reference/theta-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/UndefinedPosition.html</loc>
   </url>
   <url>
-    <loc>/reference/Theta.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/UnknownStatement.html</loc>
   </url>
   <url>
-    <loc>/reference/toString.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/unknown_statement-class.html</loc>
   </url>
   <url>
-    <loc>/reference/trim.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/UnsupportedDestException.html</loc>
   </url>
   <url>
-    <loc>/reference/UndefinedPosition.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/updateCompartments.html</loc>
   </url>
   <url>
-    <loc>/reference/UnknownStatement.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/VariablePattern.html</loc>
   </url>
   <url>
-    <loc>/reference/unknown_statement-class.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/variablePatternStr.html</loc>
   </url>
   <url>
-    <loc>/reference/UnsupportedDestException.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/variable_pattern-class.html</loc>
   </url>
   <url>
-    <loc>/reference/updateCompartments.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/write.html</loc>
   </url>
   <url>
-    <loc>/reference/variablePattern.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/writeParameters.html</loc>
   </url>
   <url>
-    <loc>/reference/variablePatternStr.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/writeRecordDelimiter.html</loc>
   </url>
   <url>
-    <loc>/reference/variable_pattern-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/write.html</loc>
-  </url>
-  <url>
-    <loc>/reference/writeParameters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/writeRecordDelimiter.html</loc>
-  </url>
-  <url>
-    <loc>/reference/writeVarcov.html</loc>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/writeVarcov.html</loc>
   </url>
 </urlset>
