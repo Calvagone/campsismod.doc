@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">campsismod</a>
 
-    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.0</small>
+    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +98,9 @@
 <div class="section level3">
 <h3 id="prerequisite">Prerequisite<a class="anchor" aria-label="anchor" href="#prerequisite"></a>
 </h3>
-<p>For this vignette, please load the <code>campsismod</code> package and load the minimalist model that we have created in the first vignette.</p>
+<p>For this vignette, please load the <code>campsismod</code> package
+and load the minimalist model that we have created in the first
+vignette.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Calvagone/campsismod" class="external-link">campsismod</a></span><span class="op">)</span>
 <span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read.campsis.html">read.campsis</a></span><span class="op">(</span><span class="st">"resources/minimalist_model/"</span><span class="op">)</span></code></pre></div>
@@ -106,8 +108,11 @@
 <div class="section level3">
 <h3 id="create-new-compartment-properties">Create new compartment properties<a class="anchor" aria-label="anchor" href="#create-new-compartment-properties"></a>
 </h3>
-<p>Let’s invent a very basic scenario: we would like to infuse <code>1000</code> into the central compartment with a fixed rate of <code>100</code> and a fixed lag time of <code>2</code>.<br>
-First, we’re going to delete the initial condition that we had in the minimalist model. This is done as follows:</p>
+<p>Let’s invent a very basic scenario: we would like to infuse
+<code>1000</code> into the central compartment with a fixed rate of
+<code>100</code> and a fixed lag time of <code>2</code>.<br>
+First, we’re going to delete the initial condition that we had in the
+minimalist model. This is done as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model_</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/delete.html">delete</a></span><span class="op">(</span><span class="fu"><a href="../reference/InitialCondition.html">InitialCondition</a></span><span class="op">(</span>compartment<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 <span class="va">model_</span></code></pre></div>
@@ -125,15 +130,17 @@ First, we’re going to delete the initial condition that we had in the minimali
 <span class="co">##   name index index2 value   fix type same</span>
 <span class="co">## 1    K     1      1    15 FALSE  cv%   NA</span>
 <span class="co">## SIGMA's:</span>
-<span class="co">## <span style="color: #949494;"># A tibble: 0 x 0</span></span>
+<span class="co">## <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="co">## No variance-covariance matrix</span>
 <span class="co">## </span>
 <span class="co">## Compartments:</span>
 <span class="co">## A_CENTRAL (CMT=1)</span></code></pre>
-<p>This is strictly equal as doing (if you prefer working with compartment names):</p>
+<p>This is strictly equal as doing (if you prefer working with
+compartment names):</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/delete.html">delete</a></span><span class="op">(</span><span class="fu"><a href="../reference/InitialCondition.html">InitialCondition</a></span><span class="op">(</span>compartment<span class="op">=</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/getCompartmentIndex.html">getCompartmentIndex</a></span><span class="op">(</span><span class="st">"CENTRAL"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>We can now add a fixed rate for all infusions that go into the central compartment:</p>
+<p>We can now add a fixed rate for all infusions that go into the
+central compartment:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/add.html">add</a></span><span class="op">(</span><span class="fu"><a href="../reference/InfusionRate.html">InfusionRate</a></span><span class="op">(</span>compartment<span class="op">=</span><span class="fl">1</span>, <span class="st">"100"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Finally, let’s now add a constant lag time:</p>
@@ -162,7 +169,7 @@ First, we’re going to delete the initial condition that we had in the minimali
 <span class="co">##   name index index2 value   fix type same</span>
 <span class="co">## 1    K     1      1    15 FALSE  cv%   NA</span>
 <span class="co">## SIGMA's:</span>
-<span class="co">## <span style="color: #949494;"># A tibble: 0 x 0</span></span>
+<span class="co">## <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="co">## No variance-covariance matrix</span>
 <span class="co">## </span>
 <span class="co">## Compartments:</span>
@@ -171,8 +178,10 @@ First, we’re going to delete the initial condition that we had in the minimali
 <div class="section level3">
 <h3 id="simulate-our-model">Simulate our model<a class="anchor" aria-label="anchor" href="#simulate-our-model"></a>
 </h3>
-<p>Let’s now simulate a few individuals and show <code>A_CENTRAL</code>, i.e., the amount of drug in the central compartment.</p>
-<p>First, we need to define an infusion of <code>1000</code> in a CAMPSIS dataset, as well as the observations times.</p>
+<p>Let’s now simulate a few individuals and show <code>A_CENTRAL</code>,
+i.e., the amount of drug in the central compartment.</p>
+<p>First, we need to define an infusion of <code>1000</code> in a
+CAMPSIS dataset, as well as the observations times.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Calvagone/campsis" class="external-link">campsis</a></span><span class="op">)</span>
 <span class="va">dataset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/campsis/man/Dataset.html" class="external-link">Dataset</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> 
@@ -187,7 +196,8 @@ First, we’re going to delete the initial condition that we had in the minimali
 <div class="section level3">
 <h3 id="a-couple-of-useful-functions-in-action">A couple of useful functions in action<a class="anchor" aria-label="anchor" href="#a-couple-of-useful-functions-in-action"></a>
 </h3>
-<p>As previously, let’s demonstrate the use of a couple of interesting functions:</p>
+<p>As previously, let’s demonstrate the use of a couple of interesting
+functions:</p>
 <p>Check the existence of a compartment:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/contains.html">contains</a></span><span class="op">(</span><span class="fu"><a href="../reference/Compartment.html">Compartment</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
@@ -234,12 +244,13 @@ First, we’re going to delete the initial condition that we had in the minimali
 <span class="co">##   name index index2 value   fix type same</span>
 <span class="co">## 1    K     1      1    15 FALSE  cv%   NA</span>
 <span class="co">## SIGMA's:</span>
-<span class="co">## <span style="color: #949494;"># A tibble: 0 x 0</span></span>
+<span class="co">## <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="co">## No variance-covariance matrix</span>
 <span class="co">## </span>
 <span class="co">## Compartments:</span>
 <span class="co">## A_CENTRAL (CMT=1)</span></code></pre>
-<p>Interestingly, the name of a compartment can be replaced as follows:</p>
+<p>Interestingly, the name of a compartment can be replaced as
+follows:</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/replace.html">replace</a></span><span class="op">(</span><span class="fu"><a href="../reference/Compartment.html">Compartment</a></span><span class="op">(</span><span class="fl">1</span>, name<span class="op">=</span><span class="st">"CENT"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span>
   <span class="fu"><a href="../reference/delete.html">delete</a></span><span class="op">(</span><span class="fu"><a href="../reference/Ode.html">Ode</a></span><span class="op">(</span><span class="st">"A_CENTRAL"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span>
@@ -264,7 +275,7 @@ First, we’re going to delete the initial condition that we had in the minimali
 <span class="co">##   name index index2 value   fix type same</span>
 <span class="co">## 1    K     1      1    15 FALSE  cv%   NA</span>
 <span class="co">## SIGMA's:</span>
-<span class="co">## <span style="color: #949494;"># A tibble: 0 x 0</span></span>
+<span class="co">## <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="co">## No variance-covariance matrix</span>
 <span class="co">## </span>
 <span class="co">## Compartments:</span>
@@ -282,7 +293,7 @@ First, we’re going to delete the initial condition that we had in the minimali
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
     </footer>

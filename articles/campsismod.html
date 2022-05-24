@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">campsismod</a>
 
-    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.0</small>
+    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,10 +98,13 @@
 <div class="section level3">
 <h3 id="load-example-from-model-library">Load example from model library<a class="anchor" aria-label="anchor" href="#load-example-from-model-library"></a>
 </h3>
-<p>First import the <code>campsismod</code> package. This step is not required if you have already loaded the <code>campsis</code> package.</p>
+<p>First import the <code>campsismod</code> package. This step is not
+required if you have already loaded the <code>campsis</code>
+package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Calvagone/campsismod" class="external-link">campsismod</a></span><span class="op">)</span></code></pre></div>
-<p>Load 2-compartment PK model from built-in model library and show content.</p>
+<p>Load 2-compartment PK model from built-in model library and show
+content.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="va">model_library</span><span class="op">$</span><span class="va">advan4_trans4</span>
 <span class="fu">show</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></code></pre></div>
@@ -161,12 +164,16 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="st">"path_to_model_folder"</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1] "model.campsis" "omega.csv"     "sigma.csv"     "theta.csv"</span></code></pre>
-<p>As shown, the output directory will contain the model (all code records) and 1 <code>csv</code> file per type of parameter (THETA, OMEGA and SIGMA).</p>
+<p>As shown, the output directory will contain the model (all code
+records) and 1 <code>csv</code> file per type of parameter (THETA, OMEGA
+and SIGMA).</p>
 </div>
 <div class="section level3">
 <h3 id="read-campsis-model">Read CAMPSIS model<a class="anchor" aria-label="anchor" href="#read-campsis-model"></a>
 </h3>
-<p>To read a CAMPSIS model from your local drive, use the <code>read.campsis</code> function. The exact same model should be retrieved.</p>
+<p>To read a CAMPSIS model from your local drive, use the
+<code>read.campsis</code> function. The exact same model should be
+retrieved.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read.campsis.html">read.campsis</a></span><span class="op">(</span>file<span class="op">=</span><span class="st">"path_to_model_folder"</span><span class="op">)</span>
 <span class="fu">show</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></code></pre></div>
@@ -215,12 +222,22 @@
 <span class="co">## A_CENTRAL (CMT=2)</span>
 <span class="co">## A_PERIPHERAL (CMT=3)</span>
 <span class="co">## A_OUTPUT (CMT=4)</span></code></pre>
-<p>The <code>MAIN</code> record is the part of the model where your model parameters are defined. The <code>ODE</code> record is where your ordinary differential equations (ODE) go, as well as any equation depending on the simulation time. The <code>ERROR</code> record is the place where the error model is defined. The model parameters are then shown, followed by the all the compartments.</p>
+<p>The <code>MAIN</code> record is the part of the model where your
+model parameters are defined. The <code>ODE</code> record is where your
+ordinary differential equations (ODE) go, as well as any equation
+depending on the simulation time. The <code>ERROR</code> record is the
+place where the error model is defined. The model parameters are then
+shown, followed by the all the compartments.</p>
 </div>
 <div class="section level3">
 <h3 id="export-campsis-model-to-rxode">Export CAMPSIS model to RxODE<a class="anchor" aria-label="anchor" href="#export-campsis-model-to-rxode"></a>
 </h3>
-<p><code>campsismod</code> has powerful export capabilities to <code>RxODE</code> and <code>mrgsolve</code>, the 2 simulation engines supported by <code>campsis</code>. The following code exports the model to <code>RxODE</code>. Please note that this step is implicit in CAMPSIS when you call the <code>simulate</code> method with your preferred simulation engine.</p>
+<p><code>campsismod</code> has powerful export capabilities to
+<code>RxODE</code> and <code>mrgsolve</code>, the 2 simulation engines
+supported by <code>campsis</code>. The following code exports the model
+to <code>RxODE</code>. Please note that this step is implicit in CAMPSIS
+when you call the <code>simulate</code> method with your preferred
+simulation engine.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rxmod</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/export.html">export</a></span><span class="op">(</span>dest<span class="op">=</span><span class="st">"RxODE"</span><span class="op">)</span>
 <span class="va">rxmod</span></code></pre></div>
@@ -260,7 +277,8 @@
 <div class="section level3">
 <h3 id="export-campsis-model-to-mrgsolve">Export CAMPSIS model to mrgsolve<a class="anchor" aria-label="anchor" href="#export-campsis-model-to-mrgsolve"></a>
 </h3>
-<p>The following code exports the model to <code>mrgsolve</code> (text form).</p>
+<p>The following code exports the model to <code>mrgsolve</code> (text
+form).</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mrgmod</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/export.html">export</a></span><span class="op">(</span>dest<span class="op">=</span><span class="st">"mrgsolve"</span><span class="op">)</span>
 <span class="va">mrgmod</span></code></pre></div>
@@ -316,7 +334,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
     </footer>

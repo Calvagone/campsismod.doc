@@ -1,5 +1,5 @@
-pandoc: 2.14.0.3
-pkgdown: 2.0.2
+pandoc: 2.17.1.1
+pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
   campsismod: campsismod.html
@@ -9,7 +9,7 @@ articles:
   v04_compartment_properties: v04_compartment_properties.html
   v05_parameters: v05_parameters.html
   v06_append_pd_model: v06_append_pd_model.html
-last_built: 2022-02-14T13:10Z
+last_built: 2022-05-24T07:50Z
 urls:
   reference: https://calvagone.github.io/campsismod.doc/reference
   article: https://calvagone.github.io/campsismod.doc/articles

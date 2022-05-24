@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">campsismod</a>
 
-    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.0</small>
+    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,7 +105,10 @@
 <div class="section level3">
 <h3 id="retrieve-your-parameters">Retrieve your parameters<a class="anchor" aria-label="anchor" href="#retrieve-your-parameters"></a>
 </h3>
-<p>The examples below are illustrated based on the reference 2-compartment PK model that you find in the built-in library. This model has 5 parameters. All these parameters have inter-individual variability defined.</p>
+<p>The examples below are illustrated based on the reference
+2-compartment PK model that you find in the built-in library. This model
+has 5 parameters. All these parameters have inter-individual variability
+defined.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="va">model_library</span><span class="op">$</span><span class="va">advan4_trans4</span>
 <span class="va">model</span></code></pre></div>
@@ -154,7 +157,8 @@
 <span class="co">## A_CENTRAL (CMT=2)</span>
 <span class="co">## A_PERIPHERAL (CMT=3)</span>
 <span class="co">## A_OUTPUT (CMT=4)</span></code></pre>
-<p>To retrieve a parameter by its name, just call the method <code>find</code> as follows:</p>
+<p>To retrieve a parameter by its name, just call the method
+<code>find</code> as follows:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/find.html">find</a></span><span class="op">(</span><span class="fu"><a href="../reference/Theta.html">Theta</a></span><span class="op">(</span><span class="st">"CL"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##   name index value   fix</span>
@@ -167,7 +171,9 @@
 <code class="sourceCode R"><span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/find.html">find</a></span><span class="op">(</span><span class="fu"><a href="../reference/Sigma.html">Sigma</a></span><span class="op">(</span><span class="st">"PROP"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##   name index index2 value   fix type</span>
 <span class="co">## 1 PROP     1      1 0.025 FALSE  var</span></code></pre>
-<p>These parameters can also alternatively be retrieved by their index(es). Use the specific method <code>getByIndex</code> created for that purpose:</p>
+<p>These parameters can also alternatively be retrieved by their
+index(es). Use the specific method <code>getByIndex</code> created for
+that purpose:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span><span class="op">@</span><span class="va">parameters</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/getByIndex.html">getByIndex</a></span><span class="op">(</span><span class="fu"><a href="../reference/Theta.html">Theta</a></span><span class="op">(</span>index<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##   name index value   fix</span>
@@ -184,13 +190,22 @@
 <div class="section level3">
 <h3 id="access-parameter-values">Access parameter values<a class="anchor" aria-label="anchor" href="#access-parameter-values"></a>
 </h3>
-<p>Accessing parameter values is straightforward. Parameters have a slot <code>value</code> that may be accessed.</p>
+<p>Accessing parameter values is straightforward. Parameters have a slot
+<code>value</code> that may be accessed.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">thetaCL</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/find.html">find</a></span><span class="op">(</span><span class="fu"><a href="../reference/Theta.html">Theta</a></span><span class="op">(</span><span class="st">"CL"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">thetaCL</span><span class="op">@</span><span class="va">value</span></code></pre></div>
 <pre><code><span class="co">## [1] 5</span></code></pre>
-<p>For OMEGA and SIGMA parameters, be careful; the interpretation of this value depends on the <code>type</code> of the parameter. It may be <code>var</code> (for a variance), <code>covar</code> (for a covariance), <code>sd</code> (for standard deviation), <code>cv</code> (value expressed as coefficient of variation), <code>cv%</code> (value expressed as coefficient of variation in percentage).<br>
-For a quick access to the value as variance or covariance, the method <code>standardise</code> can be called first on the parameter itself. This is especially useful for values expressed in CV or in standard deviation.</p>
+<p>For OMEGA and SIGMA parameters, be careful; the interpretation of
+this value depends on the <code>type</code> of the parameter. It may be
+<code>var</code> (for a variance), <code>covar</code> (for a
+covariance), <code>sd</code> (for standard deviation), <code>cv</code>
+(value expressed as coefficient of variation), <code>cv%</code> (value
+expressed as coefficient of variation in percentage).<br>
+For a quick access to the value as variance or covariance, the method
+<code>standardise</code> can be called first on the parameter itself.
+This is especially useful for values expressed in CV or in standard
+deviation.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">theta</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Omega.html">Omega</a></span><span class="op">(</span>name<span class="op">=</span><span class="st">"TEST"</span>, index<span class="op">=</span><span class="fl">1</span>, index2<span class="op">=</span><span class="fl">1</span>, value<span class="op">=</span><span class="fl">15</span>, type<span class="op">=</span><span class="st">"cv%"</span><span class="op">)</span>
 <span class="va">theta</span><span class="op">@</span><span class="va">value</span> <span class="co"># 15 is returned</span></code></pre></div>
@@ -261,7 +276,9 @@ For a quick access to the value as variance or covariance, the method <code>stan
 <div class="section level3">
 <h3 id="delete-parameters">Delete parameters<a class="anchor" aria-label="anchor" href="#delete-parameters"></a>
 </h3>
-<p>Parameters can be deleted. Please note that it does not do anything to the equations. Also, the indexes won’t be re-adjusted. Here are a few examples:</p>
+<p>Parameters can be deleted. Please note that it does not do anything
+to the equations. Also, the indexes won’t be re-adjusted. Here are a few
+examples:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/delete.html">delete</a></span><span class="op">(</span><span class="fu"><a href="../reference/Theta.html">Theta</a></span><span class="op">(</span><span class="st">"KA"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">model</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/delete.html">delete</a></span><span class="op">(</span><span class="fu"><a href="../reference/Omega.html">Omega</a></span><span class="op">(</span><span class="st">"CL"</span><span class="op">)</span><span class="op">)</span>
@@ -329,7 +346,7 @@ For a quick access to the value as variance or covariance, the method <code>stan
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
     </footer>

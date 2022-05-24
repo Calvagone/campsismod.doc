@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">campsismod</a>
 
-    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.0</small>
+    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,8 +95,14 @@
 
     
     
-<p>This vignette attends to give a brief insight on the different statements that may be used to build a structural model, compatible with CAMPSIS.<br>
-The number of model statement types proposed in <code>campsismod</code> is rather limited, with the underlying idea of keeping our model simple and the translation to RxODE and mrgsolve as clean as possible. However, in a near future, new types of model statements will likely be supported.</p>
+<p>This vignette attends to give a brief insight on the different
+statements that may be used to build a structural model, compatible with
+CAMPSIS.<br>
+The number of model statement types proposed in <code>campsismod</code>
+is rather limited, with the underlying idea of keeping our model simple
+and the translation to RxODE and mrgsolve as clean as possible. However,
+in a near future, new types of model statements will likely be
+supported.</p>
 <div class="section level3">
 <h3 id="prerequisite">Prerequisite<a class="anchor" aria-label="anchor" href="#prerequisite"></a>
 </h3>
@@ -109,8 +115,10 @@ The number of model statement types proposed in <code>campsismod</code> is rathe
 </h3>
 <p>Equations are described by 3 fields:</p>
 <ul>
-<li>lhs: the left-hand side string, which corresponds to the variable name</li>
-<li>rhs: the right-hand side string, which corresponds to the formula</li>
+<li>lhs: the left-hand side string, which corresponds to the variable
+name</li>
+<li>rhs: the right-hand side string, which corresponds to the
+formula</li>
 <li>comment: a possible comment</li>
 </ul>
 <p>Example:</p>
@@ -124,10 +132,13 @@ The number of model statement types proposed in <code>campsismod</code> is rathe
 <div class="section level3">
 <h3 id="ordinary-differential-equation-ode">Ordinary differential equation (ODE)<a class="anchor" aria-label="anchor" href="#ordinary-differential-equation-ode"></a>
 </h3>
-<p>Similarly, Ordinary differential equations (ODE’s) are described by 3 fields as well:</p>
+<p>Similarly, Ordinary differential equations (ODE’s) are described by 3
+fields as well:</p>
 <ul>
-<li>lhs: the left-hand side string, which corresponds to the variable name, must start with ‘A_’</li>
-<li>rhs: the right-hand side string, which corresponds to the derivative formula</li>
+<li>lhs: the left-hand side string, which corresponds to the variable
+name, must start with ‘A_’</li>
+<li>rhs: the right-hand side string, which corresponds to the derivative
+formula</li>
 <li>comment: a possible comment</li>
 </ul>
 <p>Example:</p>
@@ -141,7 +152,8 @@ The number of model statement types proposed in <code>campsismod</code> is rathe
 <div class="section level3">
 <h3 id="line-break">Line break<a class="anchor" aria-label="anchor" href="#line-break"></a>
 </h3>
-<p>Line breaks can be added to a model to add clear separations between blocks of equations. It does not have any field.</p>
+<p>Line breaks can be added to a model to add clear separations between
+blocks of equations. It does not have any field.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">linebreak</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LineBreak.html">LineBreak</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
@@ -150,7 +162,8 @@ The number of model statement types proposed in <code>campsismod</code> is rathe
 <div class="section level3">
 <h3 id="comment">Comment<a class="anchor" aria-label="anchor" href="#comment"></a>
 </h3>
-<p>Comments can be specified at any place in the model. They have a unique field:</p>
+<p>Comments can be specified at any place in the model. They have a
+unique field:</p>
 <ul>
 <li>x: the comment you’d like to add</li>
 </ul>
@@ -165,7 +178,8 @@ The number of model statement types proposed in <code>campsismod</code> is rathe
 <div class="section level3">
 <h3 id="if-statement">If-statement<a class="anchor" aria-label="anchor" href="#if-statement"></a>
 </h3>
-<p>If-statements allow a variable to take different values according to different specified conditions.</p>
+<p>If-statements allow a variable to take different values according to
+different specified conditions.</p>
 <ul>
 <li>condition: the given condition</li>
 <li>equation: an equation (see definition above)</li>
@@ -178,7 +192,8 @@ The number of model statement types proposed in <code>campsismod</code> is rathe
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ifStatement</span></code></pre></div>
 <pre><code><span class="co">## if (COV==1) COV_EFFECT=0.2 # This is an if statement</span></code></pre>
-<p>A common use of the if-statements is to add covariate effects into the model. Here is an example:</p>
+<p>A common use of the if-statements is to add covariate effects into
+the model. Here is an example:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">main</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MainRecord.html">MainRecord</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">main</span> <span class="op">&lt;-</span> <span class="va">main</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span>
@@ -194,19 +209,28 @@ The number of model statement types proposed in <code>campsismod</code> is rathe
 <span class="co">## if (COV==1) COV_EFFECT=0.1</span>
 <span class="co">## if (COV==2) COV_EFFECT=0.2</span>
 <span class="co">## if (COV==3) COV_EFFECT=0.3</span></code></pre>
-<p>Please note that mrgsolve require all extra variables (like COV_EFFECT in the previous example) to be initialised to a predefined value, which makes a lot of sense in general.</p>
+<p>Please note that mrgsolve require all extra variables (like
+COV_EFFECT in the previous example) to be initialised to a predefined
+value, which makes a lot of sense in general.</p>
 </div>
 <div class="section level3">
 <h3 id="additional-remarks">Additional remarks<a class="anchor" aria-label="anchor" href="#additional-remarks"></a>
 </h3>
-<p>Package <code>campsismod</code> does not check the equations from a grammar point of view. This work is delegated to the simulation engine (RxODE or mrgsolve) and C compiler.</p>
-<p>In general, respecting the few rules listed below will give you a successful compatibility with both engines:</p>
+<p>Package <code>campsismod</code> does not check the equations from a
+grammar point of view. This work is delegated to the simulation engine
+(RxODE or mrgsolve) and C compiler.</p>
+<p>In general, respecting the few rules listed below will give you a
+successful compatibility with both engines:</p>
 <ul>
-<li>All formula’s and if-statement conditions must be written in C code</li>
-<li>Functions included in the Math library of C are compatible (e.g. cos, sin, etc)</li>
-<li>Use the pow function for writing exponents (^ is accepted in RxODE, not in mrgsolve)</li>
+<li>All formula’s and if-statement conditions must be written in C
+code</li>
+<li>Functions included in the Math library of C are compatible
+(e.g. cos, sin, etc)</li>
+<li>Use the pow function for writing exponents (^ is accepted in RxODE,
+not in mrgsolve)</li>
 <li>Scientific notation for numbers is accepted (e.g. 2.51e-01)</li>
-<li>Initialise all extra variables (see example in the section above)</li>
+<li>Initialise all extra variables (see example in the section
+above)</li>
 </ul>
 </div>
   </main>
@@ -221,7 +245,7 @@ The number of model statement types proposed in <code>campsismod</code> is rathe
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
     </footer>
