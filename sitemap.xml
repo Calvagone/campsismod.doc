@@ -220,6 +220,12 @@
     <loc>https://calvagone.github.io/campsismod.doc/reference/getRecordName.html</loc>
   </url>
   <url>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getUncertainty.html</loc>
+  </url>
+  <url>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getVarCov.html</loc>
+  </url>
+  <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/grapes-greater-than-grapes.html</loc>
   </url>
   <url>
@@ -325,6 +331,9 @@
     <loc>https://calvagone.github.io/campsismod.doc/reference/model_statements-class.html</loc>
   </url>
   <url>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/model_suite.html</loc>
+  </url>
+  <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/mrgsolveBlock.html</loc>
   </url>
   <url>
@@ -404,9 +413,6 @@
   </url>
   <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/pmx_position_by_index-class.html</loc>
-  </url>
-  <url>
-    <loc>https://calvagone.github.io/campsismod.doc/reference/pmx_undefined_position-class.html</loc>
   </url>
   <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/Position.html</loc>
@@ -497,9 +503,6 @@
   </url>
   <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/trim.html</loc>
-  </url>
-  <url>
-    <loc>https://calvagone.github.io/campsismod.doc/reference/UndefinedPosition.html</loc>
   </url>
   <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/UnknownStatement.html</loc>

@@ -57,7 +57,7 @@
     
     <a class="navbar-brand me-2" href="index.html">campsismod</a>
 
-    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.1</small>
+    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.9.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -128,7 +128,7 @@
 <p>Load 2-compartment PK model from built-in model library:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Calvagone/campsismod" class="external-link">campsismod</a></span><span class="op">)</span>
-<span class="va">model</span> <span class="op">&lt;-</span> <span class="va">model_library</span><span class="op">$</span><span class="va">advan4_trans4</span></code></pre></div>
+<span class="va">model</span> <span class="op">&lt;-</span> <span class="va">model_suite</span><span class="op">$</span><span class="va">pk</span><span class="op">$</span><span class="va">`2cpt_fo`</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="write-campsis-model">Write CAMPSIS model<a class="anchor" aria-label="anchor" href="#write-campsis-model"></a>
@@ -146,50 +146,57 @@
 <code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read.campsis.html">read.campsis</a></span><span class="op">(</span>file<span class="op">=</span><span class="st">"path_to_model_folder"</span><span class="op">)</span>
 <span class="fu">show</span><span class="op">(</span><span class="va">model</span><span class="op">)</span>
 <span class="co">#&gt; [MAIN]</span>
-<span class="co">#&gt; KA=THETA_KA*exp(ETA_KA)</span>
-<span class="co">#&gt; CL=THETA_CL*exp(ETA_CL)</span>
-<span class="co">#&gt; V2=THETA_V2*exp(ETA_V2)</span>
-<span class="co">#&gt; V3=THETA_V3*exp(ETA_V3)</span>
-<span class="co">#&gt; Q=THETA_Q*exp(ETA_Q)</span>
-<span class="co">#&gt; S2=V2</span>
+<span class="co">#&gt; TVKA=THETA_KA</span>
+<span class="co">#&gt; TVVC=THETA_VC</span>
+<span class="co">#&gt; TVVP=THETA_VP</span>
+<span class="co">#&gt; TVQ=THETA_Q</span>
+<span class="co">#&gt; TVCL=THETA_CL</span>
+<span class="co">#&gt; TVPROP_RUV=THETA_PROP_RUV</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; KA=TVKA * exp(ETA_KA)</span>
+<span class="co">#&gt; VC=TVVC * exp(ETA_VC)</span>
+<span class="co">#&gt; VP=TVVP * exp(ETA_VP)</span>
+<span class="co">#&gt; Q=TVQ * exp(ETA_Q)</span>
+<span class="co">#&gt; CL=TVCL * exp(ETA_CL)</span>
+<span class="co">#&gt; PROP_RUV=TVPROP_RUV</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; [ODE]</span>
-<span class="co">#&gt; d/dt(A_DEPOT)=-KA*A_DEPOT</span>
-<span class="co">#&gt; d/dt(A_CENTRAL)=KA*A_DEPOT + Q*A_PERIPHERAL/V3 + (-CL/V2 - Q/V2)*A_CENTRAL</span>
-<span class="co">#&gt; d/dt(A_PERIPHERAL)=-Q*A_PERIPHERAL/V3 + Q*A_CENTRAL/V2</span>
-<span class="co">#&gt; d/dt(A_OUTPUT)=CL*A_CENTRAL/V2</span>
-<span class="co">#&gt; F=A_CENTRAL/S2</span>
+<span class="co">#&gt; d/dt(A_ABS)=-KA*A_ABS</span>
+<span class="co">#&gt; d/dt(A_CENTRAL)=KA*A_ABS + Q/VP*A_PERIPHERAL - Q/VC*A_CENTRAL - CL/VC*A_CENTRAL</span>
+<span class="co">#&gt; d/dt(A_PERIPHERAL)=Q/VC*A_CENTRAL - Q/VP*A_PERIPHERAL</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; [ERROR]</span>
-<span class="co">#&gt; CP=F</span>
-<span class="co">#&gt; OBS_CP=CP*(EPS_PROP + 1)</span>
-<span class="co">#&gt; Y=OBS_CP</span>
+<span class="co">#&gt; CONC=A_CENTRAL/VC</span>
+<span class="co">#&gt; if (CONC &lt;= 0.001) CONC=0.001</span>
+<span class="co">#&gt; IPRED=log(CONC)</span>
+<span class="co">#&gt; W=PROP_RUV</span>
+<span class="co">#&gt; Y=IPRED + W*EPS_RUV_FIX</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; THETA's:</span>
-<span class="co">#&gt;   name index value   fix</span>
-<span class="co">#&gt; 1   KA     1     1 FALSE</span>
-<span class="co">#&gt; 2   CL     2     5 FALSE</span>
-<span class="co">#&gt; 3   V2     3    80 FALSE</span>
-<span class="co">#&gt; 4   V3     4    20 FALSE</span>
-<span class="co">#&gt; 5    Q     5     4 FALSE</span>
+<span class="co">#&gt;       name index value   fix</span>
+<span class="co">#&gt; 1       KA     1   1.0 FALSE</span>
+<span class="co">#&gt; 2       VC     2  60.0 FALSE</span>
+<span class="co">#&gt; 3       VP     3  10.0 FALSE</span>
+<span class="co">#&gt; 4        Q     4   2.0 FALSE</span>
+<span class="co">#&gt; 5       CL     5   3.0 FALSE</span>
+<span class="co">#&gt; 6 PROP_RUV     6   0.1 FALSE</span>
 <span class="co">#&gt; OMEGA's:</span>
 <span class="co">#&gt;   name index index2 value   fix type same</span>
-<span class="co">#&gt; 1   KA     1      1 0.025 FALSE  var   NA</span>
-<span class="co">#&gt; 2   CL     2      2 0.025 FALSE  var   NA</span>
-<span class="co">#&gt; 3   V2     3      3 0.025 FALSE  var   NA</span>
-<span class="co">#&gt; 4   V3     4      4 0.025 FALSE  var   NA</span>
-<span class="co">#&gt; 5    Q     5      5 0.025 FALSE  var   NA</span>
+<span class="co">#&gt; 1   KA     1      1    25 FALSE  cv%   NA</span>
+<span class="co">#&gt; 2   VC     2      2    25 FALSE  cv%   NA</span>
+<span class="co">#&gt; 3   VP     3      3    25 FALSE  cv%   NA</span>
+<span class="co">#&gt; 4    Q     4      4    25 FALSE  cv%   NA</span>
+<span class="co">#&gt; 5   CL     5      5    25 FALSE  cv%   NA</span>
 <span class="co">#&gt; SIGMA's:</span>
-<span class="co">#&gt;   name index index2 value   fix type</span>
-<span class="co">#&gt; 1 PROP     1      1 0.025 FALSE  var</span>
+<span class="co">#&gt;      name index index2 value  fix type</span>
+<span class="co">#&gt; 1 RUV_FIX     1      1     1 TRUE  var</span>
 <span class="co">#&gt; No variance-covariance matrix</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Compartments:</span>
-<span class="co">#&gt; A_DEPOT (CMT=1)</span>
+<span class="co">#&gt; A_ABS (CMT=1)</span>
 <span class="co">#&gt; A_CENTRAL (CMT=2)</span>
-<span class="co">#&gt; A_PERIPHERAL (CMT=3)</span>
-<span class="co">#&gt; A_OUTPUT (CMT=4)</span></code></pre></div>
+<span class="co">#&gt; A_PERIPHERAL (CMT=3)</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="simulate-with-rxode-or-mrgsolve">Simulate with RxODE or mrgsolve<a class="anchor" aria-label="anchor" href="#simulate-with-rxode-or-mrgsolve"></a>
@@ -204,12 +211,12 @@
 <span class="va">rxode</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/campsis/man/simulate.html" class="external-link">simulate</a></span><span class="op">(</span>dataset<span class="op">=</span><span class="va">dataset</span>, dest<span class="op">=</span><span class="st">"RxODE"</span>, seed<span class="op">=</span><span class="fl">1</span><span class="op">)</span>
 <span class="va">mrgsolve</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/campsis/man/simulate.html" class="external-link">simulate</a></span><span class="op">(</span>dataset<span class="op">=</span><span class="va">dataset</span>, dest<span class="op">=</span><span class="st">"mrgsolve"</span>, seed<span class="op">=</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/spaghettiPlot.html" class="external-link">spaghettiPlot</a></span><span class="op">(</span><span class="va">rxode</span>, <span class="st">"CP"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/spaghettiPlot.html" class="external-link">spaghettiPlot</a></span><span class="op">(</span><span class="va">rxode</span>, <span class="st">"CONC"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <img src="articles/resources/results_rxode.png" alt=""><p class="caption">RxODE simulation results</p>
 </div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/spaghettiPlot.html" class="external-link">spaghettiPlot</a></span><span class="op">(</span><span class="va">mrgsolve</span>, <span class="st">"CP"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/spaghettiPlot.html" class="external-link">spaghettiPlot</a></span><span class="op">(</span><span class="va">mrgsolve</span>, <span class="st">"CONC"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <img src="articles/resources/results_mrgsolve.png" alt=""><p class="caption">mrgsolve simulation results</p>
 </div>

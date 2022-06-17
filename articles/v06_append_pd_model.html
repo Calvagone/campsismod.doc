@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">campsismod</a>
 
-    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.1</small>
+    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.9.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,7 +112,7 @@ appended to a 2-compartment model.</p>
 <p>The following code will load our reference 2-compartment PK
 model.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pk_model</span> <span class="op">&lt;-</span> <span class="va">model_library</span><span class="op">$</span><span class="va">advan4_trans4</span></code></pre></div>
+<code class="sourceCode R"><span class="va">pk_model</span> <span class="op">&lt;-</span> <span class="va">model_suite</span><span class="op">$</span><span class="va">pk</span><span class="op">$</span><span class="va">`2cpt_fo`</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="load-an-effect-compartment-model">Load an effect-compartment model<a class="anchor" aria-label="anchor" href="#load-an-effect-compartment-model"></a>
@@ -120,7 +120,7 @@ model.</p>
 <p>The effect-compartment model can be loaded from the model library as
 follows:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pd_model</span> <span class="op">&lt;-</span> <span class="va">model_library</span><span class="op">$</span><span class="va">effect_cmt_model</span>
+<code class="sourceCode R"><span class="va">pd_model</span> <span class="op">&lt;-</span> <span class="va">model_suite</span><span class="op">$</span><span class="va">pd</span><span class="op">$</span><span class="va">effect_cmt_model</span>
 <span class="va">pd_model</span></code></pre></div>
 <pre><code><span class="co">## [MAIN]</span>
 <span class="co">## KE0=THETA_KE0*exp(ETA_KE0)</span>
@@ -146,7 +146,7 @@ follows:</p>
 linked with the PK concentration.<br>
 Therefore, we need to adapt it as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pd_model</span> <span class="op">&lt;-</span> <span class="va">pd_model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/replace.html">replace</a></span><span class="op">(</span><span class="fu"><a href="../reference/Equation.html">Equation</a></span><span class="op">(</span><span class="st">"PK_CONC"</span>, <span class="st">"A_CENTRAL/S2"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">pd_model</span> <span class="op">&lt;-</span> <span class="va">pd_model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/replace.html">replace</a></span><span class="op">(</span><span class="fu"><a href="../reference/Equation.html">Equation</a></span><span class="op">(</span><span class="st">"PK_CONC"</span>, <span class="st">"A_CENTRAL/VC"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="append-pd-model-to-pk-model">Append PD model to PK model<a class="anchor" aria-label="anchor" href="#append-pd-model-to-pk-model"></a>
@@ -157,56 +157,63 @@ Therefore, we need to adapt it as follows:</p>
 <code class="sourceCode R"><span class="va">pkpd_model</span> <span class="op">&lt;-</span> <span class="va">pk_model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/add.html">add</a></span><span class="op">(</span><span class="va">pd_model</span><span class="op">)</span>
 <span class="va">pkpd_model</span></code></pre></div>
 <pre><code><span class="co">## [MAIN]</span>
-<span class="co">## KA=THETA_KA*exp(ETA_KA)</span>
-<span class="co">## CL=THETA_CL*exp(ETA_CL)</span>
-<span class="co">## V2=THETA_V2*exp(ETA_V2)</span>
-<span class="co">## V3=THETA_V3*exp(ETA_V3)</span>
-<span class="co">## Q=THETA_Q*exp(ETA_Q)</span>
-<span class="co">## S2=V2</span>
+<span class="co">## TVKA=THETA_KA</span>
+<span class="co">## TVVC=THETA_VC</span>
+<span class="co">## TVVP=THETA_VP</span>
+<span class="co">## TVQ=THETA_Q</span>
+<span class="co">## TVCL=THETA_CL</span>
+<span class="co">## TVPROP_RUV=THETA_PROP_RUV</span>
+<span class="co">## </span>
+<span class="co">## KA=TVKA * exp(ETA_KA)</span>
+<span class="co">## VC=TVVC * exp(ETA_VC)</span>
+<span class="co">## VP=TVVP * exp(ETA_VP)</span>
+<span class="co">## Q=TVQ * exp(ETA_Q)</span>
+<span class="co">## CL=TVCL * exp(ETA_CL)</span>
+<span class="co">## PROP_RUV=TVPROP_RUV</span>
 <span class="co">## KE0=THETA_KE0*exp(ETA_KE0)</span>
 <span class="co">## </span>
 <span class="co">## [ODE]</span>
-<span class="co">## d/dt(A_DEPOT)=-KA*A_DEPOT</span>
-<span class="co">## d/dt(A_CENTRAL)=KA*A_DEPOT + Q*A_PERIPHERAL/V3 + (-CL/V2 - Q/V2)*A_CENTRAL</span>
-<span class="co">## d/dt(A_PERIPHERAL)=-Q*A_PERIPHERAL/V3 + Q*A_CENTRAL/V2</span>
-<span class="co">## d/dt(A_OUTPUT)=CL*A_CENTRAL/V2</span>
-<span class="co">## F=A_CENTRAL/S2</span>
-<span class="co">## PK_CONC=A_CENTRAL/S2</span>
+<span class="co">## d/dt(A_ABS)=-KA*A_ABS</span>
+<span class="co">## d/dt(A_CENTRAL)=KA*A_ABS + Q/VP*A_PERIPHERAL - Q/VC*A_CENTRAL - CL/VC*A_CENTRAL</span>
+<span class="co">## d/dt(A_PERIPHERAL)=Q/VC*A_CENTRAL - Q/VP*A_PERIPHERAL</span>
+<span class="co">## PK_CONC=A_CENTRAL/VC</span>
 <span class="co">## d/dt(A_EFFECT)=KE0*(PK_CONC - A_EFFECT)</span>
 <span class="co">## </span>
 <span class="co">## [ERROR]</span>
-<span class="co">## CP=F</span>
-<span class="co">## OBS_CP=CP*(EPS_PROP + 1)</span>
-<span class="co">## Y=OBS_CP</span>
+<span class="co">## CONC=A_CENTRAL/VC</span>
+<span class="co">## if (CONC &lt;= 0.001) CONC=0.001</span>
+<span class="co">## IPRED=log(CONC)</span>
+<span class="co">## W=PROP_RUV</span>
+<span class="co">## Y=IPRED + W*EPS_RUV_FIX</span>
 <span class="co">## </span>
 <span class="co">## </span>
 <span class="co">## THETA's:</span>
-<span class="co">##   name index value   fix</span>
-<span class="co">## 1   KA     1  1.00 FALSE</span>
-<span class="co">## 2   CL     2  5.00 FALSE</span>
-<span class="co">## 3   V2     3 80.00 FALSE</span>
-<span class="co">## 4   V3     4 20.00 FALSE</span>
-<span class="co">## 5    Q     5  4.00 FALSE</span>
-<span class="co">## 6  KE0     6  0.25 FALSE</span>
+<span class="co">##       name index value   fix</span>
+<span class="co">## 1       KA     1  1.00 FALSE</span>
+<span class="co">## 2       VC     2 60.00 FALSE</span>
+<span class="co">## 3       VP     3 10.00 FALSE</span>
+<span class="co">## 4        Q     4  2.00 FALSE</span>
+<span class="co">## 5       CL     5  3.00 FALSE</span>
+<span class="co">## 6 PROP_RUV     6  0.10 FALSE</span>
+<span class="co">## 7      KE0     7  0.25 FALSE</span>
 <span class="co">## OMEGA's:</span>
-<span class="co">##   name index index2  value   fix type same</span>
-<span class="co">## 1   KA     1      1  0.025 FALSE  var   NA</span>
-<span class="co">## 2   CL     2      2  0.025 FALSE  var   NA</span>
-<span class="co">## 3   V2     3      3  0.025 FALSE  var   NA</span>
-<span class="co">## 4   V3     4      4  0.025 FALSE  var   NA</span>
-<span class="co">## 5    Q     5      5  0.025 FALSE  var   NA</span>
-<span class="co">## 6  KE0     6      6 15.000 FALSE  cv%   NA</span>
+<span class="co">##   name index index2 value   fix type same</span>
+<span class="co">## 1   KA     1      1    25 FALSE  cv%   NA</span>
+<span class="co">## 2   VC     2      2    25 FALSE  cv%   NA</span>
+<span class="co">## 3   VP     3      3    25 FALSE  cv%   NA</span>
+<span class="co">## 4    Q     4      4    25 FALSE  cv%   NA</span>
+<span class="co">## 5   CL     5      5    25 FALSE  cv%   NA</span>
+<span class="co">## 6  KE0     6      6    15 FALSE  cv%   NA</span>
 <span class="co">## SIGMA's:</span>
-<span class="co">##   name index index2 value   fix type</span>
-<span class="co">## 1 PROP     1      1 0.025 FALSE  var</span>
+<span class="co">##      name index index2 value  fix type</span>
+<span class="co">## 1 RUV_FIX     1      1     1 TRUE  var</span>
 <span class="co">## No variance-covariance matrix</span>
 <span class="co">## </span>
 <span class="co">## Compartments:</span>
-<span class="co">## A_DEPOT (CMT=1)</span>
+<span class="co">## A_ABS (CMT=1)</span>
 <span class="co">## A_CENTRAL (CMT=2)</span>
 <span class="co">## A_PERIPHERAL (CMT=3)</span>
-<span class="co">## A_OUTPUT (CMT=4)</span>
-<span class="co">## A_EFFECT (CMT=5)</span></code></pre>
+<span class="co">## A_EFFECT (CMT=4)</span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="simulate-our-pkpd-model">Simulate our PK/PD model<a class="anchor" aria-label="anchor" href="#simulate-our-pkpd-model"></a>
@@ -218,9 +225,9 @@ Therefore, we need to adapt it as follows:</p>
   <span class="fu"><a href="../reference/add.html">add</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/Bolus.html" class="external-link">Bolus</a></span><span class="op">(</span>time<span class="op">=</span><span class="fl">0</span>, amount<span class="op">=</span><span class="fl">1000</span>, compartment<span class="op">=</span><span class="fl">1</span>, ii<span class="op">=</span><span class="fl">12</span>, addl<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span>
   <span class="fu"><a href="../reference/add.html">add</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/Observations.html" class="external-link">Observations</a></span><span class="op">(</span>times<span class="op">=</span><span class="fl">0</span><span class="op">:</span><span class="fl">36</span><span class="op">)</span><span class="op">)</span>
 <span class="va">results</span> <span class="op">&lt;-</span> <span class="va">pkpd_model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/campsis/man/simulate.html" class="external-link">simulate</a></span><span class="op">(</span>dataset<span class="op">=</span><span class="va">dataset</span>, seed<span class="op">=</span><span class="fl">1</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/campsis/man/shadedPlot.html" class="external-link">shadedPlot</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"CP"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/pkg/campsis/man/shadedPlot.html" class="external-link">shadedPlot</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"CONC"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/shadedPlot.html" class="external-link">shadedPlot</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"CP"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/shadedPlot.html" class="external-link">shadedPlot</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"CONC"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <img src="resources/pkpd_model_concentration.png" alt=""><p class="caption">PK concentration</p>
 </div>

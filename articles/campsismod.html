@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">campsismod</a>
 
-    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.1</small>
+    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.9.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,53 +106,60 @@ package.</p>
 <p>Load 2-compartment PK model from built-in model library and show
 content.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="va">model_library</span><span class="op">$</span><span class="va">advan4_trans4</span>
+<code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="va">model_suite</span><span class="op">$</span><span class="va">pk</span><span class="op">$</span><span class="va">`2cpt_fo`</span>
 <span class="fu">show</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [MAIN]</span>
-<span class="co">## KA=THETA_KA*exp(ETA_KA)</span>
-<span class="co">## CL=THETA_CL*exp(ETA_CL)</span>
-<span class="co">## V2=THETA_V2*exp(ETA_V2)</span>
-<span class="co">## V3=THETA_V3*exp(ETA_V3)</span>
-<span class="co">## Q=THETA_Q*exp(ETA_Q)</span>
-<span class="co">## S2=V2</span>
+<span class="co">## TVKA=THETA_KA</span>
+<span class="co">## TVVC=THETA_VC</span>
+<span class="co">## TVVP=THETA_VP</span>
+<span class="co">## TVQ=THETA_Q</span>
+<span class="co">## TVCL=THETA_CL</span>
+<span class="co">## TVPROP_RUV=THETA_PROP_RUV</span>
+<span class="co">## </span>
+<span class="co">## KA=TVKA * exp(ETA_KA)</span>
+<span class="co">## VC=TVVC * exp(ETA_VC)</span>
+<span class="co">## VP=TVVP * exp(ETA_VP)</span>
+<span class="co">## Q=TVQ * exp(ETA_Q)</span>
+<span class="co">## CL=TVCL * exp(ETA_CL)</span>
+<span class="co">## PROP_RUV=TVPROP_RUV</span>
 <span class="co">## </span>
 <span class="co">## [ODE]</span>
-<span class="co">## d/dt(A_DEPOT)=-KA*A_DEPOT</span>
-<span class="co">## d/dt(A_CENTRAL)=KA*A_DEPOT + Q*A_PERIPHERAL/V3 + (-CL/V2 - Q/V2)*A_CENTRAL</span>
-<span class="co">## d/dt(A_PERIPHERAL)=-Q*A_PERIPHERAL/V3 + Q*A_CENTRAL/V2</span>
-<span class="co">## d/dt(A_OUTPUT)=CL*A_CENTRAL/V2</span>
-<span class="co">## F=A_CENTRAL/S2</span>
+<span class="co">## d/dt(A_ABS)=-KA*A_ABS</span>
+<span class="co">## d/dt(A_CENTRAL)=KA*A_ABS + Q/VP*A_PERIPHERAL - Q/VC*A_CENTRAL - CL/VC*A_CENTRAL</span>
+<span class="co">## d/dt(A_PERIPHERAL)=Q/VC*A_CENTRAL - Q/VP*A_PERIPHERAL</span>
 <span class="co">## </span>
 <span class="co">## [ERROR]</span>
-<span class="co">## CP=F</span>
-<span class="co">## OBS_CP=CP*(EPS_PROP + 1)</span>
-<span class="co">## Y=OBS_CP</span>
+<span class="co">## CONC=A_CENTRAL/VC</span>
+<span class="co">## if (CONC &lt;= 0.001) CONC=0.001</span>
+<span class="co">## IPRED=log(CONC)</span>
+<span class="co">## W=PROP_RUV</span>
+<span class="co">## Y=IPRED + W*EPS_RUV_FIX</span>
 <span class="co">## </span>
 <span class="co">## </span>
 <span class="co">## THETA's:</span>
-<span class="co">##   name index value   fix</span>
-<span class="co">## 1   KA     1     1 FALSE</span>
-<span class="co">## 2   CL     2     5 FALSE</span>
-<span class="co">## 3   V2     3    80 FALSE</span>
-<span class="co">## 4   V3     4    20 FALSE</span>
-<span class="co">## 5    Q     5     4 FALSE</span>
+<span class="co">##       name index value   fix</span>
+<span class="co">## 1       KA     1   1.0 FALSE</span>
+<span class="co">## 2       VC     2  60.0 FALSE</span>
+<span class="co">## 3       VP     3  10.0 FALSE</span>
+<span class="co">## 4        Q     4   2.0 FALSE</span>
+<span class="co">## 5       CL     5   3.0 FALSE</span>
+<span class="co">## 6 PROP_RUV     6   0.1 FALSE</span>
 <span class="co">## OMEGA's:</span>
 <span class="co">##   name index index2 value   fix type same</span>
-<span class="co">## 1   KA     1      1 0.025 FALSE  var   NA</span>
-<span class="co">## 2   CL     2      2 0.025 FALSE  var   NA</span>
-<span class="co">## 3   V2     3      3 0.025 FALSE  var   NA</span>
-<span class="co">## 4   V3     4      4 0.025 FALSE  var   NA</span>
-<span class="co">## 5    Q     5      5 0.025 FALSE  var   NA</span>
+<span class="co">## 1   KA     1      1    25 FALSE  cv%   NA</span>
+<span class="co">## 2   VC     2      2    25 FALSE  cv%   NA</span>
+<span class="co">## 3   VP     3      3    25 FALSE  cv%   NA</span>
+<span class="co">## 4    Q     4      4    25 FALSE  cv%   NA</span>
+<span class="co">## 5   CL     5      5    25 FALSE  cv%   NA</span>
 <span class="co">## SIGMA's:</span>
-<span class="co">##   name index index2 value   fix type</span>
-<span class="co">## 1 PROP     1      1 0.025 FALSE  var</span>
+<span class="co">##      name index index2 value  fix type</span>
+<span class="co">## 1 RUV_FIX     1      1     1 TRUE  var</span>
 <span class="co">## No variance-covariance matrix</span>
 <span class="co">## </span>
 <span class="co">## Compartments:</span>
-<span class="co">## A_DEPOT (CMT=1)</span>
+<span class="co">## A_ABS (CMT=1)</span>
 <span class="co">## A_CENTRAL (CMT=2)</span>
-<span class="co">## A_PERIPHERAL (CMT=3)</span>
-<span class="co">## A_OUTPUT (CMT=4)</span></code></pre>
+<span class="co">## A_PERIPHERAL (CMT=3)</span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="write-campsis-model">Write CAMPSIS model<a class="anchor" aria-label="anchor" href="#write-campsis-model"></a>
@@ -178,50 +185,57 @@ retrieved.</p>
 <code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read.campsis.html">read.campsis</a></span><span class="op">(</span>file<span class="op">=</span><span class="st">"path_to_model_folder"</span><span class="op">)</span>
 <span class="fu">show</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [MAIN]</span>
-<span class="co">## KA=THETA_KA*exp(ETA_KA)</span>
-<span class="co">## CL=THETA_CL*exp(ETA_CL)</span>
-<span class="co">## V2=THETA_V2*exp(ETA_V2)</span>
-<span class="co">## V3=THETA_V3*exp(ETA_V3)</span>
-<span class="co">## Q=THETA_Q*exp(ETA_Q)</span>
-<span class="co">## S2=V2</span>
+<span class="co">## TVKA=THETA_KA</span>
+<span class="co">## TVVC=THETA_VC</span>
+<span class="co">## TVVP=THETA_VP</span>
+<span class="co">## TVQ=THETA_Q</span>
+<span class="co">## TVCL=THETA_CL</span>
+<span class="co">## TVPROP_RUV=THETA_PROP_RUV</span>
+<span class="co">## </span>
+<span class="co">## KA=TVKA * exp(ETA_KA)</span>
+<span class="co">## VC=TVVC * exp(ETA_VC)</span>
+<span class="co">## VP=TVVP * exp(ETA_VP)</span>
+<span class="co">## Q=TVQ * exp(ETA_Q)</span>
+<span class="co">## CL=TVCL * exp(ETA_CL)</span>
+<span class="co">## PROP_RUV=TVPROP_RUV</span>
 <span class="co">## </span>
 <span class="co">## [ODE]</span>
-<span class="co">## d/dt(A_DEPOT)=-KA*A_DEPOT</span>
-<span class="co">## d/dt(A_CENTRAL)=KA*A_DEPOT + Q*A_PERIPHERAL/V3 + (-CL/V2 - Q/V2)*A_CENTRAL</span>
-<span class="co">## d/dt(A_PERIPHERAL)=-Q*A_PERIPHERAL/V3 + Q*A_CENTRAL/V2</span>
-<span class="co">## d/dt(A_OUTPUT)=CL*A_CENTRAL/V2</span>
-<span class="co">## F=A_CENTRAL/S2</span>
+<span class="co">## d/dt(A_ABS)=-KA*A_ABS</span>
+<span class="co">## d/dt(A_CENTRAL)=KA*A_ABS + Q/VP*A_PERIPHERAL - Q/VC*A_CENTRAL - CL/VC*A_CENTRAL</span>
+<span class="co">## d/dt(A_PERIPHERAL)=Q/VC*A_CENTRAL - Q/VP*A_PERIPHERAL</span>
 <span class="co">## </span>
 <span class="co">## [ERROR]</span>
-<span class="co">## CP=F</span>
-<span class="co">## OBS_CP=CP*(EPS_PROP + 1)</span>
-<span class="co">## Y=OBS_CP</span>
+<span class="co">## CONC=A_CENTRAL/VC</span>
+<span class="co">## if (CONC &lt;= 0.001) CONC=0.001</span>
+<span class="co">## IPRED=log(CONC)</span>
+<span class="co">## W=PROP_RUV</span>
+<span class="co">## Y=IPRED + W*EPS_RUV_FIX</span>
 <span class="co">## </span>
 <span class="co">## </span>
 <span class="co">## THETA's:</span>
-<span class="co">##   name index value   fix</span>
-<span class="co">## 1   KA     1     1 FALSE</span>
-<span class="co">## 2   CL     2     5 FALSE</span>
-<span class="co">## 3   V2     3    80 FALSE</span>
-<span class="co">## 4   V3     4    20 FALSE</span>
-<span class="co">## 5    Q     5     4 FALSE</span>
+<span class="co">##       name index value   fix</span>
+<span class="co">## 1       KA     1   1.0 FALSE</span>
+<span class="co">## 2       VC     2  60.0 FALSE</span>
+<span class="co">## 3       VP     3  10.0 FALSE</span>
+<span class="co">## 4        Q     4   2.0 FALSE</span>
+<span class="co">## 5       CL     5   3.0 FALSE</span>
+<span class="co">## 6 PROP_RUV     6   0.1 FALSE</span>
 <span class="co">## OMEGA's:</span>
 <span class="co">##   name index index2 value   fix type same</span>
-<span class="co">## 1   KA     1      1 0.025 FALSE  var   NA</span>
-<span class="co">## 2   CL     2      2 0.025 FALSE  var   NA</span>
-<span class="co">## 3   V2     3      3 0.025 FALSE  var   NA</span>
-<span class="co">## 4   V3     4      4 0.025 FALSE  var   NA</span>
-<span class="co">## 5    Q     5      5 0.025 FALSE  var   NA</span>
+<span class="co">## 1   KA     1      1    25 FALSE  cv%   NA</span>
+<span class="co">## 2   VC     2      2    25 FALSE  cv%   NA</span>
+<span class="co">## 3   VP     3      3    25 FALSE  cv%   NA</span>
+<span class="co">## 4    Q     4      4    25 FALSE  cv%   NA</span>
+<span class="co">## 5   CL     5      5    25 FALSE  cv%   NA</span>
 <span class="co">## SIGMA's:</span>
-<span class="co">##   name index index2 value   fix type</span>
-<span class="co">## 1 PROP     1      1 0.025 FALSE  var</span>
+<span class="co">##      name index index2 value  fix type</span>
+<span class="co">## 1 RUV_FIX     1      1     1 TRUE  var</span>
 <span class="co">## No variance-covariance matrix</span>
 <span class="co">## </span>
 <span class="co">## Compartments:</span>
-<span class="co">## A_DEPOT (CMT=1)</span>
+<span class="co">## A_ABS (CMT=1)</span>
 <span class="co">## A_CENTRAL (CMT=2)</span>
-<span class="co">## A_PERIPHERAL (CMT=3)</span>
-<span class="co">## A_OUTPUT (CMT=4)</span></code></pre>
+<span class="co">## A_PERIPHERAL (CMT=3)</span></code></pre>
 <p>The <code>MAIN</code> record is the part of the model where your
 model parameters are defined. The <code>ODE</code> record is where your
 ordinary differential equations (ODE) go, as well as any equation
@@ -243,36 +257,45 @@ simulation engine.</p>
 <span class="va">rxmod</span></code></pre></div>
 <pre><code><span class="co">## An object of class "rxode_model"</span>
 <span class="co">## Slot "code":</span>
-<span class="co">##  [1] "KA=THETA_KA*exp(ETA_KA)"                                                   </span>
-<span class="co">##  [2] "CL=THETA_CL*exp(ETA_CL)"                                                   </span>
-<span class="co">##  [3] "V2=THETA_V2*exp(ETA_V2)"                                                   </span>
-<span class="co">##  [4] "V3=THETA_V3*exp(ETA_V3)"                                                   </span>
-<span class="co">##  [5] "Q=THETA_Q*exp(ETA_Q)"                                                      </span>
-<span class="co">##  [6] "S2=V2"                                                                     </span>
-<span class="co">##  [7] "d/dt(A_DEPOT)=-KA*A_DEPOT"                                                 </span>
-<span class="co">##  [8] "d/dt(A_CENTRAL)=KA*A_DEPOT + Q*A_PERIPHERAL/V3 + (-CL/V2 - Q/V2)*A_CENTRAL"</span>
-<span class="co">##  [9] "d/dt(A_PERIPHERAL)=-Q*A_PERIPHERAL/V3 + Q*A_CENTRAL/V2"                    </span>
-<span class="co">## [10] "d/dt(A_OUTPUT)=CL*A_CENTRAL/V2"                                            </span>
-<span class="co">## [11] "F=A_CENTRAL/S2"                                                            </span>
-<span class="co">## [12] "CP=F"                                                                      </span>
-<span class="co">## [13] "OBS_CP=CP*(EPS_PROP + 1)"                                                  </span>
-<span class="co">## [14] "Y=OBS_CP"                                                                  </span>
+<span class="co">##  [1] "TVKA=THETA_KA"                                                                  </span>
+<span class="co">##  [2] "TVVC=THETA_VC"                                                                  </span>
+<span class="co">##  [3] "TVVP=THETA_VP"                                                                  </span>
+<span class="co">##  [4] "TVQ=THETA_Q"                                                                    </span>
+<span class="co">##  [5] "TVCL=THETA_CL"                                                                  </span>
+<span class="co">##  [6] "TVPROP_RUV=THETA_PROP_RUV"                                                      </span>
+<span class="co">##  [7] ""                                                                               </span>
+<span class="co">##  [8] "KA=TVKA * exp(ETA_KA)"                                                          </span>
+<span class="co">##  [9] "VC=TVVC * exp(ETA_VC)"                                                          </span>
+<span class="co">## [10] "VP=TVVP * exp(ETA_VP)"                                                          </span>
+<span class="co">## [11] "Q=TVQ * exp(ETA_Q)"                                                             </span>
+<span class="co">## [12] "CL=TVCL * exp(ETA_CL)"                                                          </span>
+<span class="co">## [13] "PROP_RUV=TVPROP_RUV"                                                            </span>
+<span class="co">## [14] "d/dt(A_ABS)=-KA*A_ABS"                                                          </span>
+<span class="co">## [15] "d/dt(A_CENTRAL)=KA*A_ABS + Q/VP*A_PERIPHERAL - Q/VC*A_CENTRAL - CL/VC*A_CENTRAL"</span>
+<span class="co">## [16] "d/dt(A_PERIPHERAL)=Q/VC*A_CENTRAL - Q/VP*A_PERIPHERAL"                          </span>
+<span class="co">## [17] "CONC=A_CENTRAL/VC"                                                              </span>
+<span class="co">## [18] "if (CONC &lt;= 0.001) CONC=0.001"                                                  </span>
+<span class="co">## [19] "IPRED=log(CONC)"                                                                </span>
+<span class="co">## [20] "W=PROP_RUV"                                                                     </span>
+<span class="co">## [21] "Y=IPRED + W*EPS_RUV_FIX"                                                        </span>
 <span class="co">## </span>
 <span class="co">## Slot "theta":</span>
-<span class="co">## THETA_KA THETA_CL THETA_V2 THETA_V3  THETA_Q </span>
-<span class="co">##        1        5       80       20        4 </span>
+<span class="co">##       THETA_KA       THETA_VC       THETA_VP        THETA_Q       THETA_CL </span>
+<span class="co">##            1.0           60.0           10.0            2.0            3.0 </span>
+<span class="co">## THETA_PROP_RUV </span>
+<span class="co">##            0.1 </span>
 <span class="co">## </span>
 <span class="co">## Slot "omega":</span>
-<span class="co">##        ETA_KA ETA_CL ETA_V2 ETA_V3 ETA_Q</span>
-<span class="co">## ETA_KA  0.025  0.000  0.000  0.000 0.000</span>
-<span class="co">## ETA_CL  0.000  0.025  0.000  0.000 0.000</span>
-<span class="co">## ETA_V2  0.000  0.000  0.025  0.000 0.000</span>
-<span class="co">## ETA_V3  0.000  0.000  0.000  0.025 0.000</span>
-<span class="co">## ETA_Q   0.000  0.000  0.000  0.000 0.025</span>
+<span class="co">##            ETA_KA     ETA_VC     ETA_VP      ETA_Q     ETA_CL</span>
+<span class="co">## ETA_KA 0.06062462 0.00000000 0.00000000 0.00000000 0.00000000</span>
+<span class="co">## ETA_VC 0.00000000 0.06062462 0.00000000 0.00000000 0.00000000</span>
+<span class="co">## ETA_VP 0.00000000 0.00000000 0.06062462 0.00000000 0.00000000</span>
+<span class="co">## ETA_Q  0.00000000 0.00000000 0.00000000 0.06062462 0.00000000</span>
+<span class="co">## ETA_CL 0.00000000 0.00000000 0.00000000 0.00000000 0.06062462</span>
 <span class="co">## </span>
 <span class="co">## Slot "sigma":</span>
-<span class="co">##          EPS_PROP</span>
-<span class="co">## EPS_PROP    0.025</span></code></pre>
+<span class="co">##             EPS_RUV_FIX</span>
+<span class="co">## EPS_RUV_FIX           1</span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="export-campsis-model-to-mrgsolve">Export CAMPSIS model to mrgsolve<a class="anchor" aria-label="anchor" href="#export-campsis-model-to-mrgsolve"></a>
@@ -284,40 +307,48 @@ form).</p>
 <span class="va">mrgmod</span></code></pre></div>
 <pre><code><span class="co">## An object of class "mrgsolve_model"</span>
 <span class="co">## Slot "param":</span>
-<span class="co">## [1] "[PARAM] @annotated"       "THETA_KA : 1 : THETA_KA" </span>
-<span class="co">## [3] "THETA_CL : 5 : THETA_CL"  "THETA_V2 : 80 : THETA_V2"</span>
-<span class="co">## [5] "THETA_V3 : 20 : THETA_V3" "THETA_Q : 4 : THETA_Q"   </span>
+<span class="co">## [1] "[PARAM] @annotated"                   </span>
+<span class="co">## [2] "THETA_KA : 1 : THETA_KA"              </span>
+<span class="co">## [3] "THETA_VC : 60 : THETA_VC"             </span>
+<span class="co">## [4] "THETA_VP : 10 : THETA_VP"             </span>
+<span class="co">## [5] "THETA_Q : 2 : THETA_Q"                </span>
+<span class="co">## [6] "THETA_CL : 3 : THETA_CL"              </span>
+<span class="co">## [7] "THETA_PROP_RUV : 0.1 : THETA_PROP_RUV"</span>
 <span class="co">## </span>
 <span class="co">## Slot "cmt":</span>
-<span class="co">## [1] "[CMT] @annotated"          "A_DEPOT : DEPOT"          </span>
+<span class="co">## [1] "[CMT] @annotated"          "A_ABS : ABS"              </span>
 <span class="co">## [3] "A_CENTRAL : CENTRAL"       "A_PERIPHERAL : PERIPHERAL"</span>
-<span class="co">## [5] "A_OUTPUT : OUTPUT"        </span>
 <span class="co">## </span>
 <span class="co">## Slot "main":</span>
-<span class="co">## [1] "[MAIN]"                          "double KA=THETA_KA*exp(ETA_KA);"</span>
-<span class="co">## [3] "double CL=THETA_CL*exp(ETA_CL);" "double V2=THETA_V2*exp(ETA_V2);"</span>
-<span class="co">## [5] "double V3=THETA_V3*exp(ETA_V3);" "double Q=THETA_Q*exp(ETA_Q);"   </span>
-<span class="co">## [7] "double S2=V2;"                  </span>
+<span class="co">##  [1] "[MAIN]"                            "double TVKA=THETA_KA;"            </span>
+<span class="co">##  [3] "double TVVC=THETA_VC;"             "double TVVP=THETA_VP;"            </span>
+<span class="co">##  [5] "double TVQ=THETA_Q;"               "double TVCL=THETA_CL;"            </span>
+<span class="co">##  [7] "double TVPROP_RUV=THETA_PROP_RUV;" ""                                 </span>
+<span class="co">##  [9] "double KA=TVKA * exp(ETA_KA);"     "double VC=TVVC * exp(ETA_VC);"    </span>
+<span class="co">## [11] "double VP=TVVP * exp(ETA_VP);"     "double Q=TVQ * exp(ETA_Q);"       </span>
+<span class="co">## [13] "double CL=TVCL * exp(ETA_CL);"     "double PROP_RUV=TVPROP_RUV;"      </span>
 <span class="co">## </span>
 <span class="co">## Slot "ode":</span>
-<span class="co">## [1] "[ODE]"                                                                     </span>
-<span class="co">## [2] "dxdt_A_DEPOT=-KA*A_DEPOT;"                                                 </span>
-<span class="co">## [3] "dxdt_A_CENTRAL=KA*A_DEPOT + Q*A_PERIPHERAL/V3 + (-CL/V2 - Q/V2)*A_CENTRAL;"</span>
-<span class="co">## [4] "dxdt_A_PERIPHERAL=-Q*A_PERIPHERAL/V3 + Q*A_CENTRAL/V2;"                    </span>
-<span class="co">## [5] "dxdt_A_OUTPUT=CL*A_CENTRAL/V2;"                                            </span>
-<span class="co">## [6] "double F=A_CENTRAL/S2;"                                                    </span>
+<span class="co">## [1] "[ODE]"                                                                          </span>
+<span class="co">## [2] "dxdt_A_ABS=-KA*A_ABS;"                                                          </span>
+<span class="co">## [3] "dxdt_A_CENTRAL=KA*A_ABS + Q/VP*A_PERIPHERAL - Q/VC*A_CENTRAL - CL/VC*A_CENTRAL;"</span>
+<span class="co">## [4] "dxdt_A_PERIPHERAL=Q/VC*A_CENTRAL - Q/VP*A_PERIPHERAL;"                          </span>
 <span class="co">## </span>
 <span class="co">## Slot "omega":</span>
-<span class="co">## [1] "[OMEGA] @annotated @block"     "ETA_KA : 0.025 : ETA_KA"      </span>
-<span class="co">## [3] "ETA_CL : 0 0.025 : ETA_CL"     "ETA_V2 : 0 0 0.025 : ETA_V2"  </span>
-<span class="co">## [5] "ETA_V3 : 0 0 0 0.025 : ETA_V3" "ETA_Q : 0 0 0 0 0.025 : ETA_Q"</span>
+<span class="co">## [1] "[OMEGA] @annotated @block"                   </span>
+<span class="co">## [2] "ETA_KA : 0.0606246218164348 : ETA_KA"        </span>
+<span class="co">## [3] "ETA_VC : 0 0.0606246218164348 : ETA_VC"      </span>
+<span class="co">## [4] "ETA_VP : 0 0 0.0606246218164348 : ETA_VP"    </span>
+<span class="co">## [5] "ETA_Q : 0 0 0 0.0606246218164348 : ETA_Q"    </span>
+<span class="co">## [6] "ETA_CL : 0 0 0 0 0.0606246218164348 : ETA_CL"</span>
 <span class="co">## </span>
 <span class="co">## Slot "sigma":</span>
-<span class="co">## [1] "[SIGMA] @annotated @block"   "EPS_PROP : 0.025 : EPS_PROP"</span>
+<span class="co">## [1] "[SIGMA] @annotated @block"     "EPS_RUV_FIX : 1 : EPS_RUV_FIX"</span>
 <span class="co">## </span>
 <span class="co">## Slot "table":</span>
-<span class="co">## [1] "[TABLE]"                           "capture CP=F;"                    </span>
-<span class="co">## [3] "capture OBS_CP=CP*(EPS_PROP + 1);" "capture Y=OBS_CP;"                </span>
+<span class="co">## [1] "[TABLE]"                          "capture CONC=A_CENTRAL/VC;"      </span>
+<span class="co">## [3] "if (CONC &lt;= 0.001) CONC=0.001;"   "capture IPRED=log(CONC);"        </span>
+<span class="co">## [5] "capture W=PROP_RUV;"              "capture Y=IPRED + W*EPS_RUV_FIX;"</span>
 <span class="co">## </span>
 <span class="co">## Slot "capture":</span>
 <span class="co">## character(0)</span></code></pre>
