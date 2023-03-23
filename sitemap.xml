@@ -49,6 +49,9 @@
     <loc>https://calvagone.github.io/campsismod.doc/reference/addProperties.html</loc>
   </url>
   <url>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/addSuffix.html</loc>
+  </url>
+  <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/appendCodeRecords.html</loc>
   </url>
   <url>
@@ -215,6 +218,9 @@
   </url>
   <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/getRecordDelimiter.html</loc>
+  </url>
+  <url>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/getRecordEquationNames.html</loc>
   </url>
   <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/getRecordName.html</loc>
@@ -518,6 +524,9 @@
   </url>
   <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/VariablePattern.html</loc>
+  </url>
+  <url>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/variablePatternNoStartStr.html</loc>
   </url>
   <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/variablePatternStr.html</loc>
