@@ -52,6 +52,9 @@
     <loc>https://calvagone.github.io/campsismod.doc/reference/addSuffix.html</loc>
   </url>
   <url>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/allNa.html</loc>
+  </url>
+  <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/appendCodeRecords.html</loc>
   </url>
   <url>
@@ -455,6 +458,9 @@
   </url>
   <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/read.varcov.html</loc>
+  </url>
+  <url>
+    <loc>https://calvagone.github.io/campsismod.doc/reference/removeNaColumn.html</loc>
   </url>
   <url>
     <loc>https://calvagone.github.io/campsismod.doc/reference/removeTrailingLineBreaks.html</loc>
