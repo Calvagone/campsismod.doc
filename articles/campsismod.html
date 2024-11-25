@@ -224,16 +224,16 @@ place where the error model is defined. The model parameters are then
 shown, followed by the all the compartments.</p>
 </div>
 <div class="section level3">
-<h3 id="export-campsis-model-to-rxode">Export Campsis model to RxODE<a class="anchor" aria-label="anchor" href="#export-campsis-model-to-rxode"></a>
+<h3 id="export-campsis-model-to-rxode2">Export Campsis model to rxode2<a class="anchor" aria-label="anchor" href="#export-campsis-model-to-rxode2"></a>
 </h3>
 <p><code>campsismod</code> has powerful export capabilities to
-<code>RxODE</code> and <code>mrgsolve</code>, the 2 simulation engines
+<code>rxode2</code> and <code>mrgsolve</code>, the 2 simulation engines
 supported by <code>campsis</code>. The following code exports the model
-to <code>RxODE</code>. Please note that this step is implicit in Campsis
-when you call the <code>simulate</code> method with your preferred
-simulation engine.</p>
+to <code>rxode2</code>. Please note that this step is implicit in
+Campsis when you call the <code>simulate</code> method with your
+preferred simulation engine.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">rxmod</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/export.html">export</a></span><span class="op">(</span>dest<span class="op">=</span><span class="st">"RxODE"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">rxmod</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="../reference/export.html">export</a></span><span class="op">(</span>dest<span class="op">=</span><span class="st">"rxode2"</span><span class="op">)</span></span>
 <span><span class="va">rxmod</span></span></code></pre></div>
 <pre><code><span><span class="co">## An object of class "rxode_model"</span></span>
 <span><span class="co">## Slot "code":</span></span>
