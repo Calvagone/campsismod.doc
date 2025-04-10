@@ -6,16 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Append a model to another • campsismod</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Append a model to another">
 </head>
 <body>
@@ -26,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">campsismod</a>
 
-    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.2</small>
+    <small class="nav-text text-warning me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -226,18 +225,18 @@ Therefore, we need to adapt it as follows:</p>
 <p>Let’s now simulate our PK/PD model:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Calvagone/campsis" class="external-link">campsis</a></span><span class="op">)</span></span>
-<span><span class="va">dataset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/campsis/man/Dataset.html" class="external-link">Dataset</a></span><span class="op">(</span><span class="fl">25</span><span class="op">)</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/add.html">add</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/Bolus.html" class="external-link">Bolus</a></span><span class="op">(</span>time<span class="op">=</span><span class="fl">0</span>, amount<span class="op">=</span><span class="fl">1000</span>, compartment<span class="op">=</span><span class="fl">1</span>, ii<span class="op">=</span><span class="fl">12</span>, addl<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="../reference/add.html">add</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/Observations.html" class="external-link">Observations</a></span><span class="op">(</span>times<span class="op">=</span><span class="fl">0</span><span class="op">:</span><span class="fl">36</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="va">pkpd_model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/campsis/man/simulate.html" class="external-link">simulate</a></span><span class="op">(</span>dataset<span class="op">=</span><span class="va">dataset</span>, seed<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/shadedPlot.html" class="external-link">shadedPlot</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"CONC"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">dataset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://calvagone.github.io/campsis.doc/reference/Dataset.html" class="external-link">Dataset</a></span><span class="op">(</span><span class="fl">25</span><span class="op">)</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/add.html">add</a></span><span class="op">(</span><span class="fu"><a href="https://calvagone.github.io/campsis.doc/reference/Bolus.html" class="external-link">Bolus</a></span><span class="op">(</span>time<span class="op">=</span><span class="fl">0</span>, amount<span class="op">=</span><span class="fl">1000</span>, compartment<span class="op">=</span><span class="fl">1</span>, ii<span class="op">=</span><span class="fl">12</span>, addl<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/add.html">add</a></span><span class="op">(</span><span class="fu"><a href="https://calvagone.github.io/campsis.doc/reference/Observations.html" class="external-link">Observations</a></span><span class="op">(</span>times<span class="op">=</span><span class="fl">0</span><span class="op">:</span><span class="fl">36</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="va">pkpd_model</span> <span class="op"><a href="../reference/grapes-greater-than-grapes.html">%&gt;%</a></span> <span class="fu"><a href="https://calvagone.github.io/campsis.doc/reference/simulate.html" class="external-link">simulate</a></span><span class="op">(</span>dataset<span class="op">=</span><span class="va">dataset</span>, seed<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://calvagone.github.io/campsis.doc/reference/shadedPlot.html" class="external-link">shadedPlot</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"CONC"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/shadedPlot.html" class="external-link">shadedPlot</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"CONC"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://calvagone.github.io/campsis.doc/reference/shadedPlot.html" class="external-link">shadedPlot</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"CONC"</span><span class="op">)</span></span></code></pre></div>
 <div class="float">
 <img src="resources/pkpd_model_concentration.png" alt="PK concentration"><div class="figcaption">PK concentration</div>
 </div>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/campsis/man/shadedPlot.html" class="external-link">shadedPlot</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"EFFECT"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://calvagone.github.io/campsis.doc/reference/shadedPlot.html" class="external-link">shadedPlot</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"EFFECT"</span><span class="op">)</span></span></code></pre></div>
 <div class="float">
 <img src="resources/pkpd_model_effect.png" alt="Showing the delayed effect"><div class="figcaption">Showing the delayed effect</div>
 </div>
